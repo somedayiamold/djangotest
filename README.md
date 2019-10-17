@@ -1,9 +1,11 @@
 ### create mysql container
 `docker run --name mysql-demo -e MYSQL_ROOT_PASSWORD=mysqlRoot -e MYSQL_DATABASE=testdb -e MYSQL_USER=test -e MYSQL_PASSWORD="demotest" -d mysql --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci`
 ### change msyql8.0 password encryption by following commands
-```>> docker exec -it mysql-demo bash
+```
+>> docker exec -it mysql-demo bash
 >> mysql -uroot -pmysqlRoot
->> ALTER USER 'test'@'%' IDENTIFIED WITH mysql_native_password BY 'demotest';```
+>> ALTER USER 'test'@'%' IDENTIFIED WITH mysql_native_password BY 'demotest';
+```
 
 ### create test image under project djangodemo
 `docker build -t djangotest .`
@@ -14,13 +16,17 @@
 ### enter container by execute
 `docker exec -it djangotest bash`
 ### create table
-```python3 manage.py makemigrations
-python3 manage.py migrate```
+```
+python3 manage.py makemigrations
+python3 manage.py migrate
+```
 
 ### test
-```python3 manage.py shell
+```
+python3 manage.py shell
 from demo.models import JobContext
-JobContext.objects.create(data=b'\x80\x03X\x04\x00\x00\x00xxxxq\x00.')```
+JobContext.objects.create(data=b'\x80\x03X\x04\x00\x00\x00xxxxq\x00.')
+```
 
 you might be able to see the following errors:
 

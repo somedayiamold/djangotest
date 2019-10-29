@@ -1,3 +1,6 @@
+
+### repoducing steps of ticket https://code.djangoproject.com/ticket/30887
+
 ### create mysql container
 `docker run --name mysql-demo -e MYSQL_ROOT_PASSWORD=mysqlRoot -e MYSQL_DATABASE=testdb -e MYSQL_USER=test -e MYSQL_PASSWORD="demotest" -d mysql --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci`
 ### change msyql8.0 password encryption by following commands
